@@ -56,9 +56,10 @@ enum class Instance : uint8_t {
  *         Represent part of functionality of device
  */
 enum class Component : uint32_t {
-    Undefined      = 0x0000,
-    Common_core    = 0x0001,
-    CAN_serial     = 0x0002,
+    Undefined           = 0x0000,
+    Common_core         = 0x0001,
+    CAN_serial          = 0x0002,
+    LED_illumination    = 0x0003,
 };
 
 /**
@@ -99,6 +100,7 @@ enum class Message_type : uint16_t {
     // 0x4 - Module specific
     Supply_type_request    = 0x400,
     Supply_type_response   = 0x401,
+    LED_set_intensity      = 0x410,
     // 0x5 - Module specific
     // 0x6 - Module specific
     // 0x7 - Module specific
