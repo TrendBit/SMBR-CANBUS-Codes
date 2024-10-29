@@ -8,8 +8,12 @@
 #pragma once
 
 #include "codes/codes.hpp"
-#include "message_config.hpp"
-#include "can_bus/app_message.hpp"
+
+#ifndef CAN_DATA_TYPE
+    #define CAN_DATA_TYPE std::vector<uint8_t>
+#endif
+
+typedef CAN_DATA_TYPE can_data_vector_t;
 
 namespace App_messages {
 
@@ -32,24 +36,31 @@ struct Base_message {
      explicit Base_message(Codes::Message_type type): type(type) {};
 
     /**
-     * @brief   Convert received Application message into derived class
+     * @brief   Type of message, part of CAN ID
      *
-     * @param message   Application message which should be converted into specific message
-     * @return true     Message was successfully converted
-     * @return false    Message cannot be converted into this type of message
+     * @return Codes::Message_type  Type of message
      */
-    virtual bool Interpret_app_message(Application_message &message) = 0;
-
-    /**
-     * @brief   Convert message into Application message
-     *
-     * @return Application_message  Application message which is converted from this specific message
-     */
-    virtual Application_message To_app_message() = 0;
-
-    Codes::Message_type Message_type() const {
+    Codes::Message_type Type() const {
         return type;
     }
+
+    /**
+     * @brief   Convert received data from CAN frame into specific message data
+     *
+     * @param data      Data from CAN frame which should be converted into specific message
+     * @return true     Data was successfully converted
+     * @return false    Data cannot be converted into this type of message
+     */
+    virtual bool Interpret_data(can_data_vector_t &data) = 0;
+
+    /**
+     * @brief   Convert message specific data into CAN frame data
+     *
+     * @return  can_data_vector_t   Data of CAN frame
+     */
+    virtual can_data_vector_t Export_data() = 0;
+
+
 
 };
 
