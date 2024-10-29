@@ -82,7 +82,6 @@ enum class Command_admin : uint16_t {
  *          This codes are used in extended frame format and every extended frame is considered as application message
  *          First 4 bytes are used for message type code and also determine priority
  */
-
 enum class Message_type : uint16_t {
     // 0x0 - Module specific - Emergency
     Undefined = 0x000,
@@ -90,8 +89,9 @@ enum class Message_type : uint16_t {
     // 0x1 - Module specific - High priority
 
     // 0x2 - Common messages - High priority
-    Device_reset           = 0x200,
-    Device_bootloader      = 0x201,
+    Device_reset            = 0x200,
+    Device_usb_bootloader   = 0x201,
+    Device_can_bootloader   = 0x202,
 
     // 0x3 - Shared messages - High priority
     Probe_modules_request  = 0x300,
