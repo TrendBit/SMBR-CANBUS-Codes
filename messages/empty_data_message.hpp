@@ -24,21 +24,16 @@ struct Empty_data_message : virtual Base_message {
         Base_message(Codes::Message_type::Undefined)
     { }
 
-    bool Interpret_app_message(Application_message &message) override final {
-        if (message.Message_type() != type) {
-            return false;
-        }
-
-        if (message.data.size() != 0) {
+    virtual bool Interpret_data(can_data_vector_t &data) override final {
+        if (data.size() != 0) {
             return false;
         }
 
         return true;
     }
 
-    virtual Application_message To_app_message() override final {
-        Application_message message(type);
-        return message;
+    virtual can_data_vector_t Export_data() override final {
+        return {};
     }
 };
 };

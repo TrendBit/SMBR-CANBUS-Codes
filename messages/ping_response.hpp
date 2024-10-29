@@ -15,7 +15,6 @@
 namespace App_messages {
 
 struct Ping_response: public Ping_request {
-
     Ping_response(uint8_t sequence_number = 0):
         Base_message(Codes::Message_type::Ping_response),
         Ping_request(sequence_number)

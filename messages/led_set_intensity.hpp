@@ -42,39 +42,34 @@ struct LED_set_intensity:Base_message {
     {}
 
     /**
-     * @brief   Convert received Application message into LED_set_intensity message
+     * @brief   Convert CAN data into channel and intensity values in this message
      *
-     * @param message   Application message which should be converted into LED_set_intensity message
-     * @return true     Message was successfully converted
-     * @return false    Message cannot be converted into this type of message
+     * @param data      CAN data which should be converted into LED_set_intensity message
+     * @return true     Data was successfully converted
+     * @return false    Data cannot be converted into this type of message
      */
-    bool Interpret_app_message(Application_message &message) override final{
-        if (message.Message_type() != type){
+    virtual bool Interpret_data(can_data_vector_t &data) override final {
+        if (data.size() != 3) {
             return false;
         }
 
-        if (message.data.size() != 3) {
-            return false;
-        }
-
-        channel = message.data[0];
-        intensity = (message.data[1] << 8 | message.data[2])/static_cast<float>(std::numeric_limits<uint16_t>::max());
+        channel = data[0];
+        intensity = (data[1] << 8 | data[2])/static_cast<float>(std::numeric_limits<uint16_t>::max());
         return true;
     }
 
     /**
-     * @brief   Convert LED_set_intensity message into Application message, eq. fill data
+     * @brief   Convert LED_set_intensity message into CAN data
      *
      * @return  Application_message Application message which is converted from this LED_set_intensity message
      */
-    virtual Application_message To_app_message() override final {
-        etl::vector<uint8_t, 8> data(3);
+    virtual can_data_vector_t Export_data() override final {
+        can_data_vector_t data(3);
         data[0] = channel;
         uint16_t intensity_u16 = static_cast<uint16_t>(intensity * std::numeric_limits<uint16_t>::max());
         data[1] = intensity_u16 >> 8;
         data[2] = intensity_u16 & 0xFF;
-        Application_message message(type, data);
-        return message;
+        return data;
     }
 };
 

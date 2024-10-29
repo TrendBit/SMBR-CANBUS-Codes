@@ -21,27 +21,22 @@ struct Core_temp_response : public Base_message {
         temperature(temperature)
     { }
 
-    bool Interpret_app_message(Application_message &message) override final {
-        if (message.Message_type() != type) {
+    virtual bool Interpret_data(can_data_vector_t &data) override final {
+        if (data.size() != sizeof(float)) {
             return false;
         }
 
-        if (message.data.size() != sizeof(float)) {
-            return false;
-        }
-
-        std::copy(message.data.begin(), message.data.end(), reinterpret_cast<uint8_t*>(&temperature));
+        std::copy(data.begin(), data.end(), reinterpret_cast<uint8_t*>(&temperature));
 
         return true;
     }
 
-    virtual Application_message To_app_message() override final {
-        can_data data(sizeof(float));
+    virtual can_data_vector_t Export_data() override final {
+        can_data_vector_t data(sizeof(float));
         std::copy(reinterpret_cast<uint8_t *>(&temperature),
           reinterpret_cast<uint8_t *>(&temperature) + sizeof(float),
           data.begin());
-        Application_message message(type, data);
-        return message;
+        return data;
     }
 };
 };

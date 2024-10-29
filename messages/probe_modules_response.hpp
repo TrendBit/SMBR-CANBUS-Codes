@@ -12,33 +12,37 @@
 #include "can_bus/app_message.hpp"
 #include "base_message.hpp"
 
+#include <vector>
+
+#ifndef CANBUS_UUID_LEN
+    #define CANBUS_UUID_LEN       6
+#endif
+
 namespace App_messages {
 struct Probe_modules_response : Base_message {
-    etl::array<uint8_t, 6> uid;
+    /**
+     * @brief   Unique identifier of module, which is responding to probe request
+     */
+    std::array<uint8_t, CANBUS_UUID_LEN> uid;
 
-    Probe_modules_response(etl::array<uint8_t, 6> uid = { 0, 0, 0, 0, 0, 0 }) :
+    Probe_modules_response(std::array<uint8_t, CANBUS_UUID_LEN> uid = { 0, 0, 0, 0, 0, 0}) :
         Base_message(Codes::Message_type::Probe_modules_response),
         uid(uid)
     { }
 
-    bool Interpret_app_message(Application_message &message) override final {
-        if (message.Message_type() != type) {
+    virtual bool Interpret_data(can_data_vector_t &data) override final {
+        if (data.size() != 6) {
             return false;
         }
 
-        if (message.data.size() != 6) {
-            return false;
-        }
-
-        std::copy(message.data.begin(), message.data.begin() + message.data.size(), uid.begin());
+        std::copy(data.begin(), data.begin() + data.size(), uid.begin());
 
         return true;
     }
 
-    virtual Application_message To_app_message() override final {
-        etl::vector<uint8_t, 8> uid_vector(uid.begin(), uid.end());
-        Application_message message(type, uid_vector);
-        return message;
+    virtual can_data_vector_t Export_data() override final {
+        can_data_vector_t uid_vector(uid.begin(), uid.end());
+        return uid_vector;
     }
 };
 };
