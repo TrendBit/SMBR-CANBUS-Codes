@@ -9,7 +9,6 @@
 
 #include "codes/codes.hpp"
 
-#include "can_bus/app_message.hpp"
 #include "empty_data_message.hpp"
 
 namespace App_messages {

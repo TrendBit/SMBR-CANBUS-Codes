@@ -9,7 +9,6 @@
 
 #include "codes/codes.hpp"
 
-#include "can_bus/app_message.hpp"
 #include "base_message.hpp"
 
 #include <vector>
