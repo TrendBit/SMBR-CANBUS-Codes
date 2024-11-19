@@ -16,7 +16,7 @@ struct Core_temp_response : public Base_message {
     float temperature = -273.15f;
 
     Core_temp_response(float temperature = -273.15f) :
-        Base_message(Codes::Message_type::Core_temperature_request),
+        Base_message(Codes::Message_type::Core_temperature_response),
         temperature(temperature)
     { }
 
