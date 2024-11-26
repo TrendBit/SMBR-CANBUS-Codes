@@ -11,13 +11,12 @@
 
 #include "base_message.hpp"
 
-namespace App_messages {
-
+namespace App_messages::LED_panel {
 /**
  * @brief   Message for setting intensity of LED, contains channel of led controller and intensity of LED
  *          For intensity is internally used uint16_t value, which is converted to float value from 0.0 to 1.0
  */
-struct LED_set_intensity:Base_message {
+struct Set_intensity: virtual public Base_message {
     /**
      * @brief   Channel of LED controller, which should be set
      */
@@ -34,7 +33,7 @@ struct LED_set_intensity:Base_message {
      * @param channel       Channel of LED controller, which should be set
      * @param intensity     Intensity of LED, value from 0.0 to 1.0
      */
-    LED_set_intensity(uint8_t channel = 0, float intensity = 0.0f):
+    Set_intensity(uint8_t channel = 0, float intensity = 0.0f):
         Base_message(Codes::Message_type::LED_set_intensity),
         channel(channel),
         intensity(std::clamp(intensity,0.0f,1.0f))
@@ -60,7 +59,7 @@ struct LED_set_intensity:Base_message {
     /**
      * @brief   Convert LED_set_intensity message into CAN data
      *
-     * @return  Application_message Application message which is converted from this LED_set_intensity message
+     * @return  data   Can frame data which is generated from this message
      */
     virtual can_data_vector_t Export_data() override final {
         can_data_vector_t data(3);
