@@ -11,7 +11,7 @@
 
 #include "empty_data_message.hpp"
 
-namespace App_messages {
+namespace App_messages::Common {
 struct Device_reset : Empty_data_message {
     Device_reset() :
         Base_message(Codes::Message_type::Device_reset)

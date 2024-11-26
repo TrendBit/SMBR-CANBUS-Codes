@@ -11,7 +11,7 @@
 
 #include "empty_data_message.hpp"
 
-namespace App_messages {
+namespace App_messages::Common {
 struct Probe_modules_request : Empty_data_message {
     Probe_modules_request() :
         Base_message(Codes::Message_type::Probe_modules_request)

@@ -11,7 +11,7 @@
 
 #include "empty_data_message.hpp"
 
-namespace App_messages {
+namespace App_messages::Common {
 struct Device_usb_bootloader : Empty_data_message {
     Device_usb_bootloader() :
         Base_message(Codes::Message_type::Device_usb_bootloader)

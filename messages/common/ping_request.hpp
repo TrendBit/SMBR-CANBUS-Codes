@@ -11,7 +11,7 @@
 
 #include "base_message.hpp"
 
-namespace App_messages {
+namespace App_messages::Common {
 
 struct Ping_request: virtual public Base_message {
     /**

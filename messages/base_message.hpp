@@ -11,6 +11,7 @@
 
 #ifndef CAN_DATA_TYPE
     #define CAN_DATA_TYPE std::vector<uint8_t>
+    #include <vector>
 #endif
 
 typedef CAN_DATA_TYPE can_data_vector_t;

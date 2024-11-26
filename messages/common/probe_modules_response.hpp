@@ -17,7 +17,7 @@
     #define CANBUS_UUID_LEN       6
 #endif
 
-namespace App_messages {
+namespace App_messages::Common {
 struct Probe_modules_response : Base_message {
     /**
      * @brief   Unique identifier of module, which is responding to probe request

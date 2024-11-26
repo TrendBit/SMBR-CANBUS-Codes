@@ -11,7 +11,7 @@
 
 #include "empty_data_message.hpp"
 
-namespace App_messages {
+namespace App_messages::Common {
 struct Core_temp_request : Empty_data_message {
     Core_temp_request() :
         Base_message(Codes::Message_type::Core_temperature_request)

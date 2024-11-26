@@ -11,8 +11,8 @@
 
 #include "base_message.hpp"
 
-namespace App_messages {
-struct Core_temp_response : public Base_message {
+namespace App_messages::Common {
+struct Core_temp_response : virtual public Base_message {
     float temperature = -273.15f;
 
     Core_temp_response(float temperature = -273.15f) :

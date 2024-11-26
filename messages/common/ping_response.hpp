@@ -11,7 +11,7 @@
 
 #include "base_message.hpp"
 
-namespace App_messages {
+namespace App_messages::Common {
 
 struct Ping_response: public Ping_request {
     Ping_response(uint8_t sequence_number = 0):
