@@ -56,15 +56,15 @@ enum class Instance : uint8_t {
  *         Represent part of functionality of device
  */
 enum class Component : uint32_t {
-    Undefined        = 0x0000,
-    Common_core      = 0x0001,
-    CAN_serial       = 0x0002,
-    LED_illumination = 0x0003,
-    Cuvette_pump     = 0x0004,
-    Bottle_aerator   = 0x0005,
-    Bottle_mixer     = 0x0006,
-    Bottle_heater    = 0x0007,
-    Case_fan         = 0x0008,
+    Undefined      = 0x0000,
+    Common_core    = 0x0001,
+    CAN_serial     = 0x0002,
+    LED_panel      = 0x0003,
+    Cuvette_pump   = 0x0004,
+    Bottle_aerator = 0x0005,
+    Bottle_mixer   = 0x0006,
+    Bottle_heater  = 0x0007,
+    Case_fan       = 0x0008,
 };
 
 /**
