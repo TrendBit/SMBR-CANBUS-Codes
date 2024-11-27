@@ -15,8 +15,8 @@ namespace App_messages::LED_panel {
     /**
      * @brief   Request to read temperature of LED panel
      */
-    struct Get_temperature_request:Empty_data_message {
-        Get_temperature_request():
+    struct Temperature_request:Empty_data_message {
+        Temperature_request():
             Base_message(Codes::Message_type::LED_get_temperature_request)
         {}
     };
