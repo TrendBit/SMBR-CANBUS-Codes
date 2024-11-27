@@ -19,13 +19,13 @@ namespace Codes {
  * @brief 8-bit identifier of device, together with 4 bit device enumeration creates, enumeration of device in system
  */
 enum class Module : uint8_t {
-    Undefined     = 0x00,
-    All           = 0x01,
-    Any           = 0x02,
-    TestBed       = 0x03,
-    Core_device   = 0x04,
-    Control_board = 0x05,
-    Sensor_board  = 0x06,
+    Undefined      = 0x00,
+    All            = 0x01,
+    Any            = 0x02,
+    Test_module    = 0x03,
+    Core_module    = 0x04, // Virtual RaspberryPi + Interface Board
+    Control_module = 0x05,
+    Sensor_module  = 0x06,
 };
 
 /**
