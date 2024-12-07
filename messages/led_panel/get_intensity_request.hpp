@@ -53,7 +53,7 @@ namespace App_messages::LED_panel {
      * @return  data   Can frame data which is generated from this message
      */
     virtual can_data_vector_t Export_data() override final {
-        can_data_vector_t data(3);
+        can_data_vector_t data(1);
         data[0] = channel;
         return data;
     }
