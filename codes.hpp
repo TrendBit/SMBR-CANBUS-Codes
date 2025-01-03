@@ -120,6 +120,7 @@ enum class Message_type : uint16_t {
     Heater_get_target_temperature_response = 0x425,
     Heater_get_plate_temperature_request   = 0x426,
     Heater_get_plate_temperature_response  = 0x427,
+    Heater_turn_off                        = 0x428,
 
     Cuvette_pump_set_speed                 = 0x430,
     Cuvette_pump_get_speed                 = 0x431,
