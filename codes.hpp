@@ -94,33 +94,42 @@ enum class Message_type : uint16_t {
     // 0x1 - Module specific - High priority
 
     // 0x2 - Common messages - High priority
-    Device_reset                       = 0x200,
-    Device_usb_bootloader              = 0x201,
-    Device_can_bootloader              = 0x202,
+    Device_reset                           = 0x200,
+    Device_usb_bootloader                  = 0x201,
+    Device_can_bootloader                  = 0x202,
 
     // 0x3 - Shared messages - High priority
-    Probe_modules_request              = 0x300,
-    Probe_modules_response             = 0x301,
+    Probe_modules_request                  = 0x300,
+    Probe_modules_response                 = 0x301,
 
     // 0x4 - Module specific
-    Supply_type_request                = 0x400,
-    Supply_type_response               = 0x401,
+    Supply_type_request                    = 0x400,
+    Supply_type_response                   = 0x401,
 
-    LED_set_intensity                  = 0x410,
-    LED_get_intensity_request          = 0x411,
-    LED_get_intensity_response         = 0x412,
-    LED_get_temperature_request        = 0x413,
-    LED_get_temperature_response       = 0x414,
+    LED_set_intensity                      = 0x410,
+    LED_get_intensity_request              = 0x411,
+    LED_get_intensity_response             = 0x412,
+    LED_get_temperature_request            = 0x413,
+    LED_get_temperature_response           = 0x414,
 
-    Cuvette_pump_set_speed             = 0x417,
-    Cuvette_pump_get_speed             = 0x418,
-    Cuvette_pump_set_flowrate          = 0x419,
-    Cuvette_pump_get_flowrate_request  = 0x41a,
-    Cuvette_pump_get_flowrate_response = 0x41b,
-    Cuvette_pump_move                  = 0x41c,
-    Cuvette_pump_stop                  = 0x41d,
-    Cuvette_pump_prime                 = 0x41e,
-    Cuvette_pump_purge                 = 0x41f,
+    Heater_set_intensity                   = 0x420,
+    Heater_get_intensity_request           = 0x421,
+    Heater_get_intensity_response          = 0x422,
+    Heater_set_target_temperature          = 0x423,
+    Heater_get_target_temperature_request  = 0x424,
+    Heater_get_target_temperature_response = 0x425,
+    Heater_get_plate_temperature_request   = 0x426,
+    Heater_get_plate_temperature_response  = 0x427,
+
+    Cuvette_pump_set_speed                 = 0x430,
+    Cuvette_pump_get_speed                 = 0x431,
+    Cuvette_pump_set_flowrate              = 0x432,
+    Cuvette_pump_get_flowrate_request      = 0x433,
+    Cuvette_pump_get_flowrate_response     = 0x434,
+    Cuvette_pump_move                      = 0x435,
+    Cuvette_pump_stop                      = 0x436,
+    Cuvette_pump_prime                     = 0x437,
+    Cuvette_pump_purge                     = 0x438,
 
     // 0x5 - Module specific
     // 0x6 - Module specific
