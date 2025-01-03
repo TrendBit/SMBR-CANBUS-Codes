@@ -137,13 +137,17 @@ enum class Message_type : uint16_t {
     // 0x8 - Module specific
     // 0x9 - Reserved for future use
     // 0xa - Common messages
-    Core_load_request         = 0xa00,
-    Core_load_response        = 0xa01,
-    Core_temperature_request  = 0xa02,
-    Core_temperature_response = 0xa03,
+    Core_load_request          = 0xa00,
+    Core_load_response         = 0xa01,
+    Core_temperature_request   = 0xa02,
+    Core_temperature_response  = 0xa03,
+    Board_temperature_request  = 0xa04,
+    Board_temperature_response = 0xa05,
+
     // 0xb - Common messages
-    Ping_request              = 0xb00,
-    Ping_response             = 0xb01,
+    Ping_request               = 0xb00,
+    Ping_response              = 0xb01,
+
     // 0xc - Shared messages
     // 0xd - Reserved for future use
     // 0xe - Error messages
