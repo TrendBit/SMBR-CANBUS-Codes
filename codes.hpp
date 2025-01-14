@@ -123,14 +123,15 @@ enum class Message_type : uint16_t {
     Heater_turn_off                        = 0x428,
 
     Cuvette_pump_set_speed                 = 0x430,
-    Cuvette_pump_get_speed                 = 0x431,
-    Cuvette_pump_set_flowrate              = 0x432,
-    Cuvette_pump_get_flowrate_request      = 0x433,
-    Cuvette_pump_get_flowrate_response     = 0x434,
-    Cuvette_pump_move                      = 0x435,
-    Cuvette_pump_stop                      = 0x436,
-    Cuvette_pump_prime                     = 0x437,
-    Cuvette_pump_purge                     = 0x438,
+    Cuvette_pump_get_speed_request         = 0x431,
+    Cuvette_pump_get_speed_response        = 0x432,
+    Cuvette_pump_set_flowrate              = 0x433,
+    Cuvette_pump_get_flowrate_request      = 0x434,
+    Cuvette_pump_get_flowrate_response     = 0x435,
+    Cuvette_pump_move                      = 0x436,
+    Cuvette_pump_stop                      = 0x437,
+    Cuvette_pump_prime                     = 0x438,
+    Cuvette_pump_purge                     = 0x439,
 
     // 0x5 - Module specific
     // 0x6 - Module specific
