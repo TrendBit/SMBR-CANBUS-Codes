@@ -7,6 +7,10 @@
 
 #pragma once
 
+#include "codes/codes.hpp"
+
+#include "empty_data_message.hpp"
+
 namespace App_messages::Heater {
     /**
      * @brief   Request to turn off heater
