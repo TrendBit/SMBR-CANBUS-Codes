@@ -12,7 +12,7 @@
 #include "base_message.hpp"
 
 
-namespace App_messages {
+namespace App_messages::Cuvette_pump {
 
 /**
  * @brief  Move message commands cuvette pump to move given volume of liquid with given flowrate
