@@ -16,7 +16,7 @@ namespace App_messages::Cuvette_pump {
     /**
      * @brief   Response to request for current speed of cuvette pump
      *          Members:
-     *              float speed: Current speed of pump in range 0-1.0
+     *              float speed: Current speed of pump in range -1.0 to 1.0
      */
     struct Get_speed_response: public Float_message {
         // rename data variable to speed

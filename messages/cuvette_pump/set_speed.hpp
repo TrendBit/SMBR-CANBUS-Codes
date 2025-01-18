@@ -16,7 +16,7 @@ namespace App_messages::Cuvette_pump {
     /**
      * @brief   Sets speed of cuvette pump
      *          Members:
-     *              float speed: Speed of pump in range 0-1.0
+     *              float speed: Speed of pump in range from -1.0 to 1.0
      */
     struct Set_speed: public Float_message {
         // rename data variable to speed
