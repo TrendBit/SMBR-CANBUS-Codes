@@ -133,6 +133,15 @@ enum class Message_type : uint16_t {
     Cuvette_pump_prime                     = 0x438,
     Cuvette_pump_purge                     = 0x439,
 
+    Aerator_set_speed                      = 0x440,
+    Aerator_get_speed_request              = 0x441,
+    Aerator_get_speed_response             = 0x442,
+    Aerator_set_flowrate                   = 0x443,
+    Aerator_get_flowrate_request           = 0x444,
+    Aerator_get_flowrate_response          = 0x445,
+    Aerator_move                           = 0x446,
+    Aerator_stop                           = 0x447,
+
     // 0x5 - Module specific
     // 0x6 - Module specific
     // 0x7 - Module specific
