@@ -142,6 +142,15 @@ enum class Message_type : uint16_t {
     Aerator_move                           = 0x446,
     Aerator_stop                           = 0x447,
 
+    Mixer_set_speed                        = 0x450,
+    Mixer_get_speed_request                = 0x451,
+    Mixer_get_speed_response               = 0x452,
+    Mixer_set_rpm                          = 0x453,
+    Mixer_get_rpm_request                  = 0x454,
+    Mixer_get_rpm_response                 = 0x455,
+    Mixer_stir                             = 0x456,
+    Mixer_stop                             = 0x457,
+
     // 0x5 - Module specific
     // 0x6 - Module specific
     // 0x7 - Module specific
