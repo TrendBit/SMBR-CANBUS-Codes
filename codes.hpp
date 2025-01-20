@@ -98,6 +98,15 @@ enum class Message_type : uint16_t {
     Device_usb_bootloader                  = 0x201,
     Device_can_bootloader                  = 0x202,
 
+    Core_SID_request                       = 0x210,
+    Core_SID_response                      = 0x211,
+    Core_IP_request                        = 0x212,
+    Core_IP_response                       = 0x213,
+    Core_hostname_request                  = 0x214,
+    Core_hostname_response                 = 0x215,
+    Core_serial_request                    = 0x216,
+    Core_serial_response                   = 0x217,
+
     // 0x3 - Shared messages - High priority
     Probe_modules_request                  = 0x300,
     Probe_modules_response                 = 0x301,
@@ -105,6 +114,16 @@ enum class Message_type : uint16_t {
     // 0x4 - Module specific
     Supply_type_request                    = 0x400,
     Supply_type_response                   = 0x401,
+    Supply_5V_rail_request                 = 0x402,
+    Supply_5V_rail_response                = 0x403,
+    Supply_VIN_rail_request                = 0x404,
+    Supply_VIN_rail_response               = 0x405,
+    Supply_POE_rail_request                = 0x406,
+    Supply_POE_rail_response               = 0x407,
+    Supply_current_request                 = 0x408,
+    Supply_current_response                = 0x409,
+    Supply_power_draw_request              = 0x40a,
+    Supply_power_draw_response             = 0x40b,
 
     LED_set_intensity                      = 0x410,
     LED_get_intensity_request              = 0x411,
