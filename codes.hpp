@@ -65,6 +65,7 @@ enum class Component : uint32_t {
     Bottle_mixer   = 0x0006,
     Bottle_heater  = 0x0007,
     Case_fan       = 0x0008,
+    Mini_OLED      = 0x0009,
 };
 
 /**
