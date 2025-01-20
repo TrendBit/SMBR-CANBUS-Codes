@@ -35,7 +35,9 @@ namespace App_messages::Core {
         }
 
         virtual can_data_vector_t Export_data() override final {
-            can_data_vector_t data(hostname.begin(), hostname.end());
+            can_data_vector_t data;
+            data.assign(reinterpret_cast<const uint8_t*>(hostname.data()),
+                reinterpret_cast<const uint8_t*>(hostname.data() + hostname.size()));
             return data;
         }
     };
