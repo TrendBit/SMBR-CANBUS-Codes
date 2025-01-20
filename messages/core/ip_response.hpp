@@ -9,6 +9,8 @@
 
 #include "codes/codes.hpp"
 
+#include <array>
+
 #include "base_message.hpp"
 
 namespace App_messages::Core {
