@@ -7,7 +7,13 @@
 
 #pragma once
 
+#define MAGIC_ENUM_RANGE_MIN 0
+#define MAGIC_ENUM_RANGE_MAX 4096
+
 #include <cstdint>
+#include <string>
+
+#include "tools/magic_enum.hpp"
 
 /**
  * @brief   This namespace contains all enums with their respective value describing
@@ -206,4 +212,36 @@ enum class Message_type : uint16_t {
     // 0xe - Error messages
     // 0xf - Debugging
 };
+
+    /**
+     * @brief   Convert Module enum to string representation
+     *
+     * @param module        Module enum to convert
+     * @return std::string  String representation of module
+     */
+    std::string to_string(Module module);
+
+    /**
+     * @brief   Convert Instance enum to string representation
+     *
+     * @param instance      Instance enum to convert
+     * @return std::string  String representation of instance
+     */
+    std::string to_string(Instance instance);
+
+    /**
+     * @brief   Convert Component enum to string representation
+     *
+     * @param component     Component enum to convert
+     * @return std::string  String representation of component
+     */
+    std::string to_string(Component component);
+
+    /**
+     * @brief   Convert Message_type enum to string representation
+     *
+     * @param command       Message_type enum to convert
+     * @return std::string  String representation of message type
+     */
+    std::string to_string(Message_type command);
 }
