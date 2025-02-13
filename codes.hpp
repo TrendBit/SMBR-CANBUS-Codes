@@ -189,6 +189,8 @@ enum class Message_type : uint16_t {
     Bottle_bottom_sensor_temperature_request    = 0x468,
     Bottle_bottom_sensor_temperature_response   = 0x469,
 
+    Mini_OLED_clear_custom_text                 = 0x470,
+    Mini_OLED_print_custom_text                 = 0x471,
 
     // 0x5 - Module specific
     // 0x6 - Module specific
