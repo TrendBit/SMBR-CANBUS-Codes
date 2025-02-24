@@ -21,5 +21,10 @@ namespace App_messages::LED_panel {
             Base_message(Codes::Message_type::LED_get_temperature_response),
             Core_temp_response(temperature)
         {}
+
+        Temperature_response():
+            Base_message(Codes::Message_type::LED_get_temperature_response),
+            Core_temp_response(0)
+        {}
     };
 };

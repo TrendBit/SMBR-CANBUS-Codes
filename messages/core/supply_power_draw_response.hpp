@@ -24,5 +24,9 @@ namespace App_messages::Core {
         explicit Supply_power_draw_response(float power_draw) :
             Float_message(power_draw, Codes::Message_type::Supply_power_draw_response)
         { }
+
+        Supply_power_draw_response() :
+            Float_message(0, Codes::Message_type::Supply_power_draw_response)
+        { }
     };
 };

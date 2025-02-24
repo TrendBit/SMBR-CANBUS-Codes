@@ -24,5 +24,9 @@ namespace App_messages::Core {
         explicit Supply_VIN_rail_response(float voltage) :
             Float_message(voltage, Codes::Message_type::Supply_VIN_rail_response)
         { }
+
+        Supply_VIN_rail_response() :
+            Float_message(0, Codes::Message_type::Supply_VIN_rail_response)
+        { }
     };
 };

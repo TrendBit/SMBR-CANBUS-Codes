@@ -24,5 +24,9 @@ namespace App_messages::Core {
         explicit Supply_current_response(float current) :
             Float_message(current, Codes::Message_type::Supply_current_response)
         { }
+
+        Supply_current_response() :
+            Float_message(0, Codes::Message_type::Supply_current_response)
+        { }
     };
 };
