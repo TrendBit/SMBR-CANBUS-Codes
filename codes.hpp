@@ -73,6 +73,7 @@ enum class Component : uint32_t {
     Case_fan           = 0x0008,
     Mini_OLED          = 0x0009,
     Bottle_temperature = 0x000a,
+    Fluorometer        = 0x000b,
 };
 
 /**
@@ -191,6 +192,12 @@ enum class Message_type : uint16_t {
 
     Mini_OLED_clear_custom_text                 = 0x470,
     Mini_OLED_print_custom_text                 = 0x471,
+
+    Fluorometer_data_sample                     = 0x480,
+    Fluorometer_sample_request                  = 0x481,
+    Fluorometer_sample_response                 = 0x482,
+    Fluorometer_emitor_temperature_request      = 0x483,
+    Fluorometer_emitor_temperature_response     = 0x484,
 
     // 0x5 - Module specific
     // 0x6 - Module specific
