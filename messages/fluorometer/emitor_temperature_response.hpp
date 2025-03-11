@@ -21,7 +21,7 @@ namespace App_messages::Fluorometer {
         // rename content variable to temperature
         float &temperature = content;
 
-        Emitor_temperature_response(float temperature = 0):
+        explicit Emitor_temperature_response(float temperature = 0):
             Float_message(temperature, Codes::Message_type::Fluorometer_emitor_temperature_response)
         {}
 
