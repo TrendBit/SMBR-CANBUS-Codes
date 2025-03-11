@@ -196,8 +196,20 @@ enum class Message_type : uint16_t {
     Fluorometer_data_sample                     = 0x480,
     Fluorometer_sample_request                  = 0x481,
     Fluorometer_sample_response                 = 0x482,
-    Fluorometer_emitor_temperature_request      = 0x483,
-    Fluorometer_emitor_temperature_response     = 0x484,
+    Fluorometer_OJIP_capture_request            = 0x483,
+    Fluorometer_OJIP_completed_request          = 0x484,
+    Fluorometer_OJIP_completed_response         = 0x485,
+    Fluorometer_OJIP_retrieve_request           = 0x486,
+    Fluorometer_OJIP_retrieve_response          = 0x487,
+    Fluorometer_emitor_temperature_request      = 0x488,
+    Fluorometer_emitor_temperature_response     = 0x489,
+    Fluorometer_detector_temperature_request    = 0x48a,
+    Fluorometer_detector_temperature_response   = 0x48b,
+    Fluorometer_emitor_info_request             = 0x48c,
+    Fluorometer_emitor_info_response            = 0x48d,
+    Fluorometer_detector_info_request           = 0x48e,
+    Fluorometer_detector_info_response          = 0x48f,
+
 
     // 0x5 - Module specific
     // 0x6 - Module specific
