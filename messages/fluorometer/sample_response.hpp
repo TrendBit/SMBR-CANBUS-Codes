@@ -15,6 +15,7 @@ namespace App_messages::Fluorometer {
     /**
      * @brief   Response for measured sample from fluorometer
      *          Message is derived from Data_sample
+     *          Time should always be set to zero
      */
     struct Sample_response: virtual public Data_sample {
 

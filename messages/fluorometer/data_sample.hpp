@@ -14,18 +14,25 @@
 
 namespace App_messages::Fluorometer {
     /**
-     * @brief   Response for measured sample from fluorometer
+     * @brief   Sampled data from fluorometer, requested by OJIP_retrieve_request
+     *          Data must be measured before by OJIP_capture_request
+     *          Members:
+     *              uint8_t  measurement_id      4-bit measurement id
+     *              Gain     gain                Gain of detector
+     *              uint8_t  emitor_intensity    Intensity of emitor LED
+     *              uint32_t time_us             Capture time of sample
+     *              uint16_t sample_value        Value sampled from adc
      */
     struct Data_sample: virtual public Base_message {
         /**
-         * @brief   4-bit measurement id, incremented with every measurement
+         * @brief   4-bit measurement id, should be incremented with every measurement
          *          Used to determine in which measurement sequence sample belongs
          *          Value of 0 is reserved for undefined measurement - single samples
          */
         uint8_t measurement_id;
 
         /**
-         * @brief   Gain of detect with which was measurement captured, this could change during measurement
+         * @brief   Gain of detector with which was measurement captured, this could change during measurement
          */
         Fluorometer_config::Gain gain = Fluorometer_config::Gain::Undefined;
 
