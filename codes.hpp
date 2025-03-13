@@ -219,7 +219,9 @@ enum class Message_type : uint16_t {
     Spectrophotometer_channel_info_response     = 0x4a3,
     Spectrophotometer_measurement_request       = 0x4a4,
     Spectrophotometer_measurement_response      = 0x4a5,
-    Spectrophotometer_calibrate                 = 0x4a6,
+    Spectrophotometer_temperature_request       = 0x4a6,
+    Spectrophotometer_temperature_response      = 0x4a7,
+    Spectrophotometer_calibrate                 = 0x4a8,
 
     // 0x5 - Module specific
     // 0x6 - Module specific
