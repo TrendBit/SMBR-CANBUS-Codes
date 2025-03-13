@@ -74,6 +74,7 @@ enum class Component : uint32_t {
     Mini_OLED          = 0x0009,
     Bottle_temperature = 0x000a,
     Fluorometer        = 0x000b,
+    Spectrophotometer  = 0x000c,
 };
 
 /**
@@ -210,6 +211,15 @@ enum class Message_type : uint16_t {
     Fluorometer_detector_info_request           = 0x48e,
     Fluorometer_detector_info_response          = 0x48f,
 
+    // Fluorometer - Reserved                   = 0x490;
+
+    Spectrophotometer_channel_count_request     = 0x4a0,
+    Spectrophotometer_channel_count_response    = 0x4a1,
+    Spectrophotometer_channel_info_request      = 0x4a2,
+    Spectrophotometer_channel_info_response     = 0x4a3,
+    Spectrophotometer_measurement_request       = 0x4a4,
+    Spectrophotometer_measurement_response      = 0x4a5,
+    Spectrophotometer_calibrate                 = 0x4a6,
 
     // 0x5 - Module specific
     // 0x6 - Module specific
