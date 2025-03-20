@@ -29,7 +29,8 @@ namespace Fluorometer_config{
     const std::unordered_map<Gain, float> gain_values = {
         {Gain::x1, 1.0},
         {Gain::x10, 10.0},
-        {Gain::x50, 50.0}
+        {Gain::x50, 50.0},
+        {Gain::Auto, 0.0}
     };
 
     /**
