@@ -66,7 +66,7 @@ namespace App_messages::Fluorometer {
             Base_message(Codes::Message_type::Fluorometer_OJIP_capture_request)
         {}
 
-        OJIP_capture_request(uint8_t measurement_id, Fluorometer_config::Gain gain, Fluorometer_config::Timing timing, uint8_t emitor_intensity, uint16_t length_ms, uint16_t samples):
+        OJIP_capture_request(uint8_t measurement_id, Fluorometer_config::Gain gain, Fluorometer_config::Timing timing, float emitor_intensity, uint16_t length_ms, uint16_t samples):
             Base_message(Codes::Message_type::Fluorometer_OJIP_capture_request),
             measurement_id(measurement_id),
             detector_gain(gain),
@@ -96,7 +96,7 @@ namespace App_messages::Fluorometer {
             data.resize(8);
 
             data[0] = (measurement_id << 4) | static_cast<uint8_t>(detector_gain);
-            data[1] = emitor_intensity * 255;
+            data[1] = static_cast<uint8_t>(std::clamp(emitor_intensity, 0.0f, 1.0f) * 255);
             data[2] = static_cast<uint8_t>(sample_timing);
             data[3] = 0;
             data[4] = (length_ms >> 8) & 0xff;

@@ -19,7 +19,7 @@ namespace App_messages::Fluorometer {
      *          Members:
      *              uint8_t  measurement_id      4-bit measurement id
      *              Gain     gain                Gain of detector
-     *              uint8_t  emitor_intensity    Intensity of emitor LED
+     *              float    emitor_intensity    Intensity of emitor LED in range 0-1.0
      *              uint32_t time_us             Capture time of sample
      *              uint16_t sample_value        Value sampled from adc
      */
@@ -40,7 +40,7 @@ namespace App_messages::Fluorometer {
          * @brief   Intensity of emitor LED, used to determine if LED is working properly
          *          Value is in range 0-255 mapped to 0-1.0
          */
-        uint8_t emitor_intensity = 0;
+        float emitor_intensity = 0;
 
         /**
          * @brief   Value sampled from adc
@@ -56,7 +56,7 @@ namespace App_messages::Fluorometer {
          * @brief Construct a new Data_sample message
          */
         Data_sample():
-            Base_message(Codes::Message_type::Fluorometer_sample_response)
+            Base_message(Codes::Message_type::Fluorometer_data_sample)
         {}
 
         /**
@@ -93,7 +93,7 @@ namespace App_messages::Fluorometer {
          * @return float    Intensity of emitor in range 0-1.0
          */
         float Emitor_intensity(){
-            return static_cast<float>(emitor_intensity) / 255;
+            return emitor_intensity;
         }
 
         /**
@@ -121,7 +121,7 @@ namespace App_messages::Fluorometer {
 
             gain = static_cast<Fluorometer_config::Gain>(data[0] & 0x0f);
 
-            emitor_intensity = data[1];
+            emitor_intensity = static_cast<float>(data[1] / 255.0f);
 
             time_us = (data[2] << 24) | (data[3] << 16) | (data[4] << 8) | data[5];
 
@@ -140,7 +140,7 @@ namespace App_messages::Fluorometer {
 
             data[0] = (measurement_id << 4) | static_cast<uint8_t>(gain);
 
-            data[1] = emitor_intensity;
+            data[1] = static_cast<uint8_t>(std::clamp(emitor_intensity, 0.0f, 1.0f) * 255);
 
             data[2] = (time_us >> 24) & 0xff;
             data[3] = (time_us >> 16) & 0xff;

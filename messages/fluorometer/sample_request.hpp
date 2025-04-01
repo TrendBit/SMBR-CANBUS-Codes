@@ -14,7 +14,7 @@
 
 namespace App_messages::Fluorometer {
     /**
-     * @brief   Request to measure sample from fluorometer with defined gain
+     * @brief   Request to measure single sample from fluorometer with defined gain
      *          Members:
      *              uint8_t     measurement_id          4-bit measurement id
      *              Gain        detector_gain           Gain of detector
@@ -69,7 +69,7 @@ namespace App_messages::Fluorometer {
             can_data_vector_t data(2);
 
             data[0] = (measurement_id << 4) | (static_cast<uint8_t>(detector_gain) & 0x0f);
-            data[1] = static_cast<uint8_t>(emitor_intensity * 255);
+            data[1] = static_cast<uint8_t>(std::clamp(emitor_intensity, 0.0f, 1.0f) * 255);
 
             return data;
         }
