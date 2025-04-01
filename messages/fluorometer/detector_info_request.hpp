@@ -16,13 +16,13 @@ namespace App_messages::Fluorometer {
     /**
      * @brief Request information about detector of fluorometer
      */
-    struct Detector_temperature_request: public Empty_data_message {
+    struct Detector_info_request: public Empty_data_message {
 
         /**
-         * @brief Construct a new Detector_temperature_request object
+         * @brief Construct a new Detector_info_request object
          */
-        Detector_temperature_request():
-            Base_message(Codes::Message_type::Fluorometer_detector_temperature_request)
+        Detector_info_request():
+            Base_message(Codes::Message_type::Fluorometer_detector_info_request)
         {}
     };
 };

@@ -24,7 +24,7 @@ namespace App_messages::Fluorometer {
         float &temperature = content;
 
 
-        explicit Detector_temperature_response(float temperature = 0):
+        explicit Detector_temperature_response(float temperature):
             Float_message(temperature, Codes::Message_type::Fluorometer_detector_temperature_response)
         {}
 

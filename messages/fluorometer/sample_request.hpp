@@ -66,7 +66,7 @@ namespace App_messages::Fluorometer {
         }
 
         virtual can_data_vector_t Export_data() override final {
-            can_data_vector_t data(1);
+            can_data_vector_t data(2);
 
             data[0] = (measurement_id << 4) | (static_cast<uint8_t>(detector_gain) & 0x0f);
             data[1] = static_cast<uint8_t>(emitor_intensity * 255);
