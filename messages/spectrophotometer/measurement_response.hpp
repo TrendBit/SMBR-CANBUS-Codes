@@ -34,7 +34,7 @@ namespace App_messages::Spectrophotometer {
         {}
 
         virtual bool Interpret_data(can_data_vector_t &data) override final {
-            if (data.size() != 3) {
+            if (data.size() != 5) {
                 return false;
             }
 
@@ -45,7 +45,7 @@ namespace App_messages::Spectrophotometer {
         }
 
         virtual can_data_vector_t Export_data() override final {
-            can_data_vector_t data(3);
+            can_data_vector_t data(5);
             data[0] = channel;
 
             auto value_data = reinterpret_cast<uint8_t *>(&value);
