@@ -11,7 +11,11 @@
 
 namespace App_messages::Mini_OLED {
     /**
-     * @brief   Request to read temperature of LED panel
+     * @brief   Request to append text to line on OLED display.
+     *          If text passed into this message is longer than 8 characters, it will be cut to 8 characters
+     *          If accumulated text on display is longer than display width it will be rolling.
+     *          Members:
+     *              char[] text  message, maximum of 8 characters
      */
 struct Print_custom_text: public Base_message {
     static const size_t max_length = 8;

@@ -13,7 +13,7 @@
 
 namespace App_messages::Mini_OLED {
     /**
-     * @brief   Request to read temperature of LED panel
+     * @brief   Request to clear line on OLED display
      */
     struct Clear_custom_text:Empty_data_message {
         Clear_custom_text():
