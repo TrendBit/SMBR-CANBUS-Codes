@@ -211,7 +211,8 @@ enum class Message_type : uint16_t {
     Fluorometer_detector_info_request           = 0x48e,
     Fluorometer_detector_info_response          = 0x48f,
 
-    // Fluorometer - Reserved                   = 0x490;
+    Fluorometer_calibration_request             = 0x490,
+    // Fluorometer - Reserved                   = 0x491;
 
     Spectrophotometer_channel_count_request     = 0x4a0,
     Spectrophotometer_channel_count_response    = 0x4a1,
