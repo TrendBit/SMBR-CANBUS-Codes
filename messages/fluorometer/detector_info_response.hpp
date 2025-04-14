@@ -49,7 +49,7 @@ namespace App_messages::Fluorometer {
         }
 
         virtual can_data_vector_t Export_data() override final {
-            can_data_vector_t data(4);
+            can_data_vector_t data(6);
             data[0] = wavelength >> 8;
             data[1] = wavelength;
             data[2] = sensitivity >> 8;
