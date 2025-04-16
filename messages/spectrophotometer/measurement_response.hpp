@@ -17,11 +17,13 @@ namespace App_messages::Spectrophotometer {
      * @brief Response for measurement of spectrophotometer
      *          Members:
      *              uint8_t     channel:        Channel of spectrophotometer which was measured
-     *              float       value:          Measured value of channel
+     *              float       value:          Relative value of channel
      */
     struct Measurement_response: public Base_message {
         uint8_t channel = 0;
-        float value = 0;
+        float relative_value = 0;
+        uint16_t absolute_value = 0;
+
 
         explicit Measurement_response(uint8_t channel, float value):
             Base_message(Codes::Message_type::Spectrophotometer_measurement_response),
@@ -34,12 +36,13 @@ namespace App_messages::Spectrophotometer {
         {}
 
         virtual bool Interpret_data(can_data_vector_t &data) override final {
-            if (data.size() != 5) {
+            if (data.size() != 7) {
                 return false;
             }
 
             channel = data[0];
-            value = *reinterpret_cast<float *>(&data[1]);
+            relative_value = *reinterpret_cast<float *>(&data[1]);
+            absolute_value = *reinterpret_cast<uint16_t *>(&data[5]);
 
             return true;
         }
@@ -48,11 +51,15 @@ namespace App_messages::Spectrophotometer {
             can_data_vector_t data(5);
             data[0] = channel;
 
-            auto value_data = reinterpret_cast<uint8_t *>(&value);
+            auto value_data = reinterpret_cast<uint8_t *>(&relative_value);
             data[1] = value_data[0];
             data[2] = value_data[1];
             data[3] = value_data[2];
             data[4] = value_data[3];
+
+            auto absolute_value_data = reinterpret_cast<uint8_t *>(&absolute_value);
+            data[5] = absolute_value_data[0];
+            data[6] = absolute_value_data[1];
 
             return data;
         }
