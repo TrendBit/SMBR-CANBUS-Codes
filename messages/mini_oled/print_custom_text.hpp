@@ -18,7 +18,7 @@ namespace App_messages::Mini_OLED {
      *              char[] text  message, maximum of 8 characters
      */
 struct Print_custom_text: public Base_message {
-    static const size_t max_length = 8;
+    inline static const size_t max_length = 8;
 
     std::string text;
 
