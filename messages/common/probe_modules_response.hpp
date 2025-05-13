@@ -9,39 +9,15 @@
 
 #include "codes/codes.hpp"
 
-#include "base_message.hpp"
+#include "uid_message.hpp"
 
 #include <vector>
 
-#ifndef CANBUS_UUID_LEN
-    #define CANBUS_UUID_LEN       6
-#endif
-
 namespace App_messages::Common {
-struct Probe_modules_response : Base_message {
-    /**
-     * @brief   Unique identifier of module, which is responding to probe request
-     */
-    std::array<uint8_t, CANBUS_UUID_LEN> uid;
+struct Probe_modules_response : UID_message {
 
-    Probe_modules_response(std::array<uint8_t, CANBUS_UUID_LEN> uid = { 0, 0, 0, 0, 0, 0}) :
-        Base_message(Codes::Message_type::Probe_modules_response),
-        uid(uid)
+    Probe_modules_response(UID_t uid = { 0, 0, 0, 0, 0, 0}) :
+        UID_message(Codes::Message_type::Probe_modules_response, uid)
     { }
-
-    virtual bool Interpret_data(can_data_vector_t &data) override final {
-        if (data.size() != 6) {
-            return false;
-        }
-
-        std::copy(data.begin(), data.begin() + data.size(), uid.begin());
-
-        return true;
-    }
-
-    virtual can_data_vector_t Export_data() override final {
-        can_data_vector_t uid_vector(uid.begin(), uid.end());
-        return uid_vector;
-    }
 };
 };
