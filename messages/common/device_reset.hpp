@@ -9,12 +9,12 @@
 
 #include "codes/codes.hpp"
 
-#include "empty_data_message.hpp"
+#include "uid_message.hpp"
 
 namespace App_messages::Common {
-struct Device_reset : Empty_data_message {
-    Device_reset() :
-        Base_message(Codes::Message_type::Device_reset)
+struct Device_reset : UID_message {
+    Device_reset(UID_t uid = { 0, 0, 0, 0, 0, 0}) :
+        UID_message(Codes::Message_type::Device_reset, uid)
     { }
 };
 };

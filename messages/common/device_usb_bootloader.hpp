@@ -9,12 +9,12 @@
 
 #include "codes/codes.hpp"
 
-#include "empty_data_message.hpp"
+#include "uid_message.hpp"
 
 namespace App_messages::Common {
-struct Device_usb_bootloader : Empty_data_message {
-    Device_usb_bootloader() :
-        Base_message(Codes::Message_type::Device_usb_bootloader)
+struct Device_usb_bootloader : UID_message {
+    Device_usb_bootloader(UID_t uid = { 0, 0, 0, 0, 0, 0}) :
+        UID_message(Codes::Message_type::Device_reset, uid)
     { }
 };
 };
