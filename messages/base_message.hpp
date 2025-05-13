@@ -14,7 +14,19 @@
     #include <vector>
 #endif
 
+/**
+ * @brief   Type used container for CAN data, flexible size from 0 to 8 bytes, default is std::vector
+ */
 typedef CAN_DATA_TYPE can_data_vector_t;
+
+#ifndef CANBUS_UUID_LEN
+    #define CANBUS_UUID_LEN       6
+#endif
+
+/**
+ * @brief Type used au UUID of module, has fixed size, consist of 6 bytes
+ */
+typedef std::array<uint8_t, CANBUS_UUID_LEN> UID_t;
 
 namespace App_messages {
 
