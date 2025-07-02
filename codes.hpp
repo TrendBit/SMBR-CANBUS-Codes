@@ -230,16 +230,20 @@ enum class Message_type : uint16_t {
     // 0x8 - Module specific
     // 0x9 - Reserved for future use
     // 0xa - Common messages
-    Core_load_request          = 0xa00,
-    Core_load_response         = 0xa01,
-    Core_temperature_request   = 0xa02,
-    Core_temperature_response  = 0xa03,
-    Board_temperature_request  = 0xa04,
-    Board_temperature_response = 0xa05,
+    Core_load_request              = 0xa00,
+    Core_load_response             = 0xa01,
+    Core_temperature_request       = 0xa02,
+    Core_temperature_response      = 0xa03,
+    Board_temperature_request      = 0xa04,
+    Board_temperature_response     = 0xa05,
+    Core_fw_version_request        = 0xa06,
+    Core_fw_version_response       = 0xa07,
+    Core_fw_hash_request           = 0xa08,
+    Core_fw_hash_response          = 0xa09,
 
     // 0xb - Common messages
-    Ping_request               = 0xb00,
-    Ping_response              = 0xb01,
+    Ping_request                   = 0xb00,
+    Ping_response                  = 0xb01,
 
     // 0xc - Shared messages
     // 0xd - Reserved for future use
@@ -247,35 +251,35 @@ enum class Message_type : uint16_t {
     // 0xf - Debugging
 };
 
-    /**
+/**
      * @brief   Convert Module enum to string representation
      *
      * @param module        Module enum to convert
      * @return std::string  String representation of module
      */
-    std::string to_string(Module module);
+std::string to_string(Module module);
 
-    /**
+/**
      * @brief   Convert Instance enum to string representation
      *
      * @param instance      Instance enum to convert
      * @return std::string  String representation of instance
      */
-    std::string to_string(Instance instance);
+std::string to_string(Instance instance);
 
-    /**
+/**
      * @brief   Convert Component enum to string representation
      *
      * @param component     Component enum to convert
      * @return std::string  String representation of component
      */
-    std::string to_string(Component component);
+std::string to_string(Component component);
 
-    /**
+/**
      * @brief   Convert Message_type enum to string representation
      *
      * @param command       Message_type enum to convert
      * @return std::string  String representation of message type
      */
-    std::string to_string(Message_type command);
+std::string to_string(Message_type command);
 }
