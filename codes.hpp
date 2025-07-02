@@ -161,6 +161,8 @@ enum class Message_type : uint16_t {
     Cuvette_pump_stop                           = 0x437,
     Cuvette_pump_prime                          = 0x438,
     Cuvette_pump_purge                          = 0x439,
+    Cuvette_pump_info_request                   = 0x43a,
+    Cuvette_pump_info_response                  = 0x43b,
 
     Aerator_set_speed                           = 0x440,
     Aerator_get_speed_request                   = 0x441,
@@ -170,6 +172,8 @@ enum class Message_type : uint16_t {
     Aerator_get_flowrate_response               = 0x445,
     Aerator_move                                = 0x446,
     Aerator_stop                                = 0x447,
+    Aerator_info_request                        = 0x448,
+    Aerator_info_response                       = 0x449,
 
     Mixer_set_speed                             = 0x450,
     Mixer_get_speed_request                     = 0x451,
@@ -179,6 +183,8 @@ enum class Message_type : uint16_t {
     Mixer_get_rpm_response                      = 0x455,
     Mixer_stir                                  = 0x456,
     Mixer_stop                                  = 0x457,
+    Mixer_info_request                          = 0x458,
+    Mixer_info_response                         = 0x459,
 
     Bottle_temperature_request                  = 0x460,
     Bottle_temperature_response                 = 0x461,
