@@ -240,6 +240,8 @@ enum class Message_type : uint16_t {
     Core_fw_version_response       = 0xa07,
     Core_fw_hash_request           = 0xa08,
     Core_fw_hash_response          = 0xa09,
+    Core_fw_dirty_request          = 0xa0a,
+    Core_fw_dirty_response         = 0xa0b,
 
     // 0xb - Common messages
     Ping_request                   = 0xb00,
