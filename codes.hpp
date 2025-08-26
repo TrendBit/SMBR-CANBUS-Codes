@@ -32,6 +32,7 @@ enum class Module : uint8_t {
     Core_module    = 0x04, // Virtual RaspberryPi + Interface Board
     Control_module = 0x05,
     Sensor_module  = 0x06,
+    Pump_module    = 0x07,
 };
 
 /**
@@ -75,6 +76,7 @@ enum class Component : uint32_t {
     Bottle_temperature = 0x000a,
     Fluorometer        = 0x000b,
     Spectrophotometer  = 0x000c,
+    Enumerator         = 0x000d,
 };
 
 /**
