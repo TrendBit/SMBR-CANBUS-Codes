@@ -262,6 +262,7 @@ enum class Message_type : uint16_t {
     // 0xc - Shared messages
     // 0xd - Reserved for future use
     // 0xe - Error messages
+    Module_issues                  = 0xe00,
     // 0xf - Debugging
 };
 
