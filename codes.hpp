@@ -119,6 +119,9 @@ enum class Message_type : uint16_t {
     Core_serial_request                         = 0x216,
     Core_serial_response                        = 0x217,
 
+    Enumerator_collision                        = 0x230,
+    Enumerator_reserve                          = 0x231,
+
     // 0x3 - Shared messages - High priority
     Probe_modules_request                       = 0x300,
     Probe_modules_response                      = 0x301,
