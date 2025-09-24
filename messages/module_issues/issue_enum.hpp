@@ -8,7 +8,6 @@ enum class IssueType : uint8_t {
     HighLoad                = 0,
     CoreOverTemp            = 1,
     BoardOverTemp           = 2,
-    LowEEPROMMemory         = 3,
  
     // ===== Core (30–59) =====
     Invalid5VSupply         = 30,
@@ -20,12 +19,7 @@ enum class IssueType : uint8_t {
     // ===== Control (60–99) =====
     LEDPanelOverTemp        = 60,
     HeaterOverTemp          = 61,
-    PumpInvalidSpeed        = 62,
-    PumpInvalidFlowrate     = 63,
-    AeratorOverSpeed        = 64,
-    AeratorInvalidFlowrate  = 65,
-    MixerOverSpeed          = 66,
-    MixerOverRPM            = 67,
+    MixerOverRPM            = 62,
 
 
     // ===== Sensor (100–139) =====
@@ -39,13 +33,6 @@ enum class IssueType : uint8_t {
     SpectrophotometerEmitorOverTemp    = 107
 
 
-};
-
-enum class Severity : uint8_t {
-    Info     = 0,  // 0–3
-    Warning  = 4,  // 4–7
-    Error    = 8,  // 8–11
-    Critical = 12, // 12–15
 };
 
 }
