@@ -121,6 +121,7 @@ enum class Message_type : uint16_t {
 
     Enumerator_collision                        = 0x230,
     Enumerator_reserve                          = 0x231,
+    Enumerator_set                              = 0x232,
 
     // 0x3 - Shared messages - High priority
     Probe_modules_request                       = 0x300,
