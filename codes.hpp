@@ -77,6 +77,7 @@ enum class Component : uint32_t {
     Fluorometer        = 0x000b,
     Spectrophotometer  = 0x000c,
     Enumerator         = 0x000d,
+    Pumps              = 0x000e,
 };
 
 /**
@@ -238,6 +239,9 @@ enum class Message_type : uint16_t {
     Spectrophotometer_calibrate                 = 0x4a8,
 
     // 0x5 - Module specific
+    Pumps_pump_count_request                    = 0x500,
+    Pumps_pump_count_response                   = 0x501,
+    Pumps_set_speed                             = 0x502,
     // 0x6 - Module specific
     // 0x7 - Module specific
     // 0x8 - Module specific
