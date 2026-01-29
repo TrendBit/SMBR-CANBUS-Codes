@@ -169,6 +169,7 @@ enum class Message_type : uint16_t {
     Cuvette_pump_purge                          = 0x439,
     Cuvette_pump_info_request                   = 0x43a,
     Cuvette_pump_info_response                  = 0x43b,
+    Cuvette_pump_set_max_flowrate               = 0x43c,
 
     Aerator_set_speed                           = 0x440,
     Aerator_get_speed_request                   = 0x441,
