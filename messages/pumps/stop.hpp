@@ -20,7 +20,7 @@ namespace App_messages::Pumps {
     struct Stop: public Byte_message {
         uint8_t &pump_index = content;
 
-        Stop(uint8_t pump_index):
+        Stop(uint8_t pump_index = 0):
             Byte_message(pump_index, Codes::Message_type::Pumps_stop)
         {}
 };

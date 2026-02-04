@@ -20,7 +20,7 @@ namespace App_messages::Pumps {
     struct Get_flowrate_request: public Byte_message {
         uint8_t &pump_index = content;
 
-        explicit Get_flowrate_request(uint8_t pump_index):
+        explicit Get_flowrate_request(uint8_t pump_index = 0):
             Byte_message(pump_index, Codes::Message_type::Pumps_get_flowrate_request)
         {}
     };

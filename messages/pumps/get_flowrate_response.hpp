@@ -31,7 +31,7 @@ namespace App_messages::Pumps {
          */
         float &flowrate = value;
 
-        explicit Get_flowrate_response(uint8_t pump_index, float flowrate):
+        explicit Get_flowrate_response(uint8_t pump_index = 0, float flowrate = 0):
             Index_float_message(pump_index, flowrate, Codes::Message_type::Pumps_get_flowrate_response)
         {}
     };

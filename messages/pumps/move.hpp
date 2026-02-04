@@ -24,7 +24,7 @@ namespace App_messages::Pumps {
         float volume;
         float flowrate;
 
-        Move(uint8_t pump_index, float volume, float flowrate):
+        Move(uint8_t pump_index = 0, float volume = 0, float flowrate = 0):
             Base_message(Codes::Message_type::Pumps_move),
             pump_index(pump_index),
             volume(volume),

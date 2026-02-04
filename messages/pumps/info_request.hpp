@@ -22,7 +22,7 @@ namespace App_messages::Pumps {
 struct Info_request: public Byte_message {
     uint8_t &pump_index = content;
 
-    explicit Info_request(uint8_t pump_index):
+    explicit Info_request(uint8_t pump_index = 0):
         Byte_message(pump_index, Codes::Message_type::Pumps_info_request)
     {}
 };

@@ -18,7 +18,7 @@ namespace App_messages::Pumps {
     struct Pump_count_response: public Byte_message {
         uint8_t &pump_count = content;
 
-        Pump_count_response(uint8_t pump_count):
+        Pump_count_response(uint8_t pump_count = 0):
             Byte_message(pump_count, Codes::Message_type::Pumps_pump_count_response)
         {}
 };

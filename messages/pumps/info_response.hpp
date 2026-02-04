@@ -26,7 +26,7 @@ struct Info_response: public Base_message {
     float max_flowrate;
     float min_flowrate;
 
-    Info_response(uint8_t pump_index, float max_flowrate, float min_flowrate):
+    Info_response(uint8_t pump_index = 0, float max_flowrate = 0, float min_flowrate = 0):
         Base_message(Codes::Message_type::Pumps_info_response),
         pump_index(pump_index),
         max_flowrate(max_flowrate),
