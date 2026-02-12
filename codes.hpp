@@ -182,6 +182,7 @@ enum class Message_type : uint16_t {
     Aerator_stop                                = 0x447,
     Aerator_info_request                        = 0x448,
     Aerator_info_response                       = 0x449,
+    Aerator_set_max_flowrate                    = 0x44a,
 
     Mixer_set_speed                             = 0x450,
     Mixer_get_speed_request                     = 0x451,
