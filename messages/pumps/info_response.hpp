@@ -34,21 +34,21 @@ struct Info_response: public Base_message {
     {}
 
     virtual bool Interpret_data(can_data_vector_t &data) override final {
-        if (data.size() != sizeof(uint8_t) + sizeof(float) + sizeof(int16_t)) {
+        if (data.size() != sizeof(uint8_t) + sizeof(int16_t) + sizeof(int16_t)) {
             return false;
         }
 
         pump_index = data[0];
 
         int16_t temp_max_flowrate;
-        std::copy(data.begin() + 1 + sizeof(int16_t),
-                    data.begin() + 1 + 2 * sizeof(int16_t),
+        std::copy(data.begin() + 1,
+                    data.begin() + 1 + 1 * sizeof(int16_t),
                     reinterpret_cast<uint8_t*>(&temp_max_flowrate));
         max_flowrate = static_cast<float>(temp_max_flowrate) / 10.0f;
 
         int16_t temp_min_flowrate;
-        std::copy(data.begin() + 1 + 2 * sizeof(int16_t),
-                    data.begin() + 1 + 3 * sizeof(int16_t),
+        std::copy(data.begin() + 1 + 1 * sizeof(int16_t),
+                    data.begin() + 1 + 2 * sizeof(int16_t),
                     reinterpret_cast<uint8_t*>(&temp_min_flowrate));
         min_flowrate = static_cast<float>(temp_min_flowrate) / 10.0f;
 
