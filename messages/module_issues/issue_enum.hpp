@@ -8,6 +8,7 @@ enum class IssueType : uint8_t {
     HighLoad                = 0,
     CoreOverTemp            = 1,
     BoardOverTemp           = 2,
+    InvalidInstance         = 3,
  
     // ===== Core (30–59) =====
     Invalid5VSupply         = 30,
